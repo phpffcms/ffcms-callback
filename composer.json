@@ -1,0 +1,23 @@
+{
+  "name": "phpffcms/ffcms-callback",
+  "description": "FFCMS call me back widget",
+  "type": "library",
+  "keywords": ["php", "ffcms", "widget", "callback"],
+  "homepage": "http://ffcms.org",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pyatinskyi M.M.",
+      "email": "zenn1989@gmail.com",
+      "homepage": "http://ffcms.ru"
+    }
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Apps\\": "src/Apps/"
+    }
+  }
+}
