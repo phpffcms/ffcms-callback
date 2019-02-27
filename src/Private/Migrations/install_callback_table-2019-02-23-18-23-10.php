@@ -14,12 +14,13 @@ class install_callback_table extends Migration implements MigrationInterface
      */
     public function up()
     {
-        $this->getSchema()->create('callback', function ($table) {
+        $this->getSchema()->create('callbacks', function ($table) {
             /** @var \Illuminate\Database\Schema\Blueprint $table */
             $table->increments('id');
-            $table->string('name', 1024);
             $table->string('phone', 32);
+            $table->string('name', 255)->nullable();
             $table->text('more')->nullable();
+            $table->boolean('done')->default(false);
             $table->timestamps();
         });
         parent::up();
@@ -37,7 +38,7 @@ class install_callback_table extends Migration implements MigrationInterface
      */
     public function down()
     {
-        $this->getSchema()->dropIfExists('callback');
+        $this->getSchema()->dropIfExists('callbacks');
         parent::down();
     }
 }

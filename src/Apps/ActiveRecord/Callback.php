@@ -12,13 +12,15 @@ use Ffcms\Core\Arch\ActiveModel;
  * @property string $name
  * @property string $phone
  * @property array $more
+ * @property boolean $done
  * @property string $created_at
  * @property string $updated_at
  */
 class Callback extends ActiveModel
 {
     protected $casts = [
-        'more' => 'serialize'
+        'more' => 'serialize',
+        'done' => 'boolean'
     ];
 
 }

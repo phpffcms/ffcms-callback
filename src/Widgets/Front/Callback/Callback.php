@@ -2,7 +2,6 @@
 
 namespace Widgets\Front\Callback;
 
-use Apps\Model\Front\Callback\FormAbstractCallback;
 use Ffcms\Core\App;
 use Ffcms\Core\Arch\Widget;
 
@@ -13,10 +12,12 @@ use Ffcms\Core\Arch\Widget;
  */
 class Callback extends Widget
 {
-    public $tpl = 'form_post';
+    public $tpl = 'form_ajax';
 
     private $rootDir;
     private $tplDir;
+
+    private $configs;
 
     public function init(): void
     {
@@ -26,6 +27,8 @@ class Callback extends Widget
 
         $this->rootDir = realpath(__DIR__ . '/../../../');
         $this->tplDir = realpath($this->rootDir . '/Apps/View/Front/default');
+        App::$View->addFallback($this->tplDir);
+        $this->configs = $this->getConfigs();
     }
 
     /**
@@ -33,10 +36,8 @@ class Callback extends Widget
      */
     public function display(): ?string
     {
-        $model = new FormAbstractCallback();
-
         return App::$View->render('widgets/callback/' . $this->tpl, [
-            'model' => $model
-        ], $this->tplDir);
+            'configs' => $this->configs
+        ]);
     }
 }
