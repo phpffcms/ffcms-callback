@@ -48,8 +48,8 @@ class Callback extends ApiController
         }
 
         $configs = \Apps\ActiveRecord\App::getConfigs('widget', 'Callback');
-        if ($configs['useCaptcha']) {
-            $value = App::$Captcha->isFull() ? null : $callback['captcha'];
+        if ((bool)$configs['useCaptcha']) {
+            $value = $callback['captcha'];
             if (!App::$Captcha->validate($value)) {
                 throw new JsonException('Invalid captcha');
             }
