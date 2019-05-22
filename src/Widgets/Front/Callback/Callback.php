@@ -13,6 +13,7 @@ use Ffcms\Core\Arch\Widget;
 class Callback extends Widget
 {
     public $tpl = 'form_ajax';
+    public $tplParams = [];
 
     private $rootDir;
     private $tplDir;
@@ -37,7 +38,8 @@ class Callback extends Widget
     public function display(): ?string
     {
         return App::$View->render('widgets/callback/' . $this->tpl, [
-            'configs' => $this->configs
+            'configs' => $this->configs,
+            'params' => $this->tplParams
         ]);
     }
 }
