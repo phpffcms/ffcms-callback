@@ -12,7 +12,7 @@ $this->layout('_layouts/default', [
     'title' => __('Callback'),
     'breadcrumbs' => [
         Url::to('main/index') => __('Main'),
-        Url::to('application/index') => __('Widgets'),
+        Url::to('widget/index') => __('Widgets'),
         __('Callback')
     ]
 ]);

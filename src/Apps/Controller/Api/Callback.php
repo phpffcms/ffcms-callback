@@ -83,7 +83,7 @@ class Callback extends ApiController
                 'phone' => $phone,
                 'name' => $name,
                 'date' => Date::convertToDatetime($query->created_at, Date::FORMAT_TO_HOUR)
-            ])->send($configs['email'], (new \Swift_Message(__('New callback request for: %phone%', ['phone' => $phone]))));
+            ])->send($configs['email'], App::$Translate->get('Api', 'New callback request for: %phone%', ['phone' => $phone]));
         }
 
         return json_encode(['message' => __('Request successful send. We we call you as soon as posible!'), 'status' => 1]);

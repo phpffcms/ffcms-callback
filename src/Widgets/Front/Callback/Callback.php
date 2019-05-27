@@ -13,12 +13,12 @@ use Ffcms\Core\Arch\Widget;
 class Callback extends Widget
 {
     public $tpl = 'form_ajax';
-    public $tplParams = [];
 
     private $rootDir;
     private $tplDir;
 
     private $configs;
+    public $tplParams = [];
 
     public function init(): void
     {

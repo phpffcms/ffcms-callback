@@ -72,6 +72,23 @@ class Callback extends AdminController
     }
 
     /**
+     * @param string $id
+     * @return string|null
+     * @throws NotFoundException
+     */
+    public function actionRead(string $id): ?string
+    {
+        $record = \Apps\ActiveRecord\Callback::find($id);
+        if (!$record) {
+            throw new NotFoundException('No callback found by id');
+        }
+
+        return $this->view->render('callback/read', [
+            'record' => $record
+        ], $this->tplRoot);
+    }
+
+    /**
      * Close callback request
      * @param $id
      * @throws NotFoundException
